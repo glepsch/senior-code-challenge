@@ -35,12 +35,6 @@ public class EmployeeController {
 
         employee.setEmployeeId(id);
         return employeeService.update(employee);
-    }
+    }    
     
-    @GetMapping("/employee/reporting/{id}")
-    public ReportingStructure reportingStructure(@PathVariable String id) {    	
-    	LOG.debug("Received employee reporting stucture request for id [{}]", id);
-    	
-    	return employeeService.reportingStructure(id);    	
-    }
 }
