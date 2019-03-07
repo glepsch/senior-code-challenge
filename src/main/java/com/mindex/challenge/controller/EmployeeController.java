@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.mindex.challenge.data.ReportingStructure;
 
 @RestController
 public class EmployeeController {
@@ -34,5 +35,12 @@ public class EmployeeController {
 
         employee.setEmployeeId(id);
         return employeeService.update(employee);
+    }
+    
+    @GetMapping("/employee/reporting/{id}")
+    public ReportingStructure reportingStructure(@PathVariable String id) {    	
+    	LOG.debug("Received employee reporting stucture request for id [{}]", id);
+    	
+    	return employeeService.reportingStructure(id);    	
     }
 }
